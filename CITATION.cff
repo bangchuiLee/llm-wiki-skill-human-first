@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use llm-wiki in research, documentation, or a public workflow, please cite it."
+type: software
+title: "llm-wiki"
+version: "3.6.2"
+date-released: "2026-07-15"
+license: "MIT"
+authors:
+  - name: "sdyckjq-lab"
+keywords:
+  - "Obsidian"
+  - "personal knowledge management"
+  - "AI agents"
+  - "Markdown"
+  - "reading notes"
+  - "knowledge graph"
+abstract: "A human-readable Obsidian knowledge-base Skill for shared maintenance by people and AI agents."

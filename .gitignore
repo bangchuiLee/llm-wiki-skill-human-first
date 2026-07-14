@@ -1,0 +1,31 @@
+# Personal knowledge-base data
+raw/
+sources/
+wiki/
+.obsidian/
+.claude/
+.claudian/
+.wiki-cache.json
+.wiki-tmp/
+.llm-wiki-path
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+EXTEND.md
+url-to-markdown/
+*-captured.html
+
+# Generated and local artifacts
+node_modules/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+coverage.xml
+htmlcov/
+work/
+outputs/
