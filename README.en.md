@@ -15,8 +15,17 @@
 
 </div>
 
-> [!TIP]
-> **This is not RAG with a Markdown skin.** `llm-wiki skill Human First` is designed for knowledge that people can read, annotate, dispute, and revisit, while agents can maintain it reliably.
+> This project began with a personal question: after leaving school, how do I keep building knowledge? Notion? Obsidian? OneNote? Logseq? SiYuan?
+>
+> It is easy to install every new note-taking app. The small rush of accomplishment often ends there. The software is installed, so we feel like we have done the work. Later, we still do not want to use it, and do not know how to start.
+>
+> In the AI era, you do not need to master a complicated note-taking method before you begin to build knowledge.
+>
+> Put in an article, a file, or a piece of text. This Skill turns it into something easier to read, preserves where it came from, and creates a reading note that can keep improving. Just talk with the AI about your understanding, questions, or disagreements; it records them in the right place.
+>
+> Over time, the notes connect as a knowledge network and extend like a tree's root system. They help you strengthen what matters, whether it is a professional field or a new interest. When you look back later, you still have the spark of your original thinking and a reliable external brain. Each time, one link is enough to begin.
+>
+> Your everyday collection stops being material that merely occupies storage. It becomes knowledge you have understood, thought through, and can use again. Through revisiting, adding to it, and checking it, you can see your own growth.
 
 ## Why Human First
 
