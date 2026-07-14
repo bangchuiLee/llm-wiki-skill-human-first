@@ -1,57 +1,71 @@
 <div align="center">
 
-# llm-wiki
+# llm-wiki skill Human First
 
-**Human-readable knowledge bases for Obsidian, maintained by people and agents together.**
+**让外部资料成为你和 AI 都能读、能质疑、能持续维护的 Obsidian 知识库。**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-16a085.svg)](LICENSE)
-[![Format: Markdown](https://img.shields.io/badge/format-Markdown-0f766e.svg)](https://www.markdownguide.org/)
-[![Workspace: Obsidian](https://img.shields.io/badge/workspace-Obsidian-7c3aed.svg)](https://obsidian.md/)
-[![Agent Ready](https://img.shields.io/badge/agent-ready-0ea5e9.svg)](AGENTS.md)
+[English](README.en.md) · [安装](#60-秒开始) · [工作流](#从资料到理解) · [给-agent-的约束](#给-agent-的约束) · [许可证与致谢](#许可证与致谢)
 
-`Obsidian` `personal knowledge management` `AI agents` `reading notes` `Markdown`
+[![License: MIT](https://img.shields.io/badge/license-MIT-0f766e.svg)](LICENSE)
+[![Obsidian](https://img.shields.io/badge/workspace-Obsidian-7c3aed.svg)](https://obsidian.md/)
+[![Markdown](https://img.shields.io/badge/format-Markdown-0ea5e9.svg)](https://www.markdownguide.org/)
+[![Agent ready](https://img.shields.io/badge/agent-ready-f59e0b.svg)](AGENTS.md)
 
-[Why llm-wiki](#why-llm-wiki) · [How it works](#how-it-works) · [Quick start](#quick-start) · [For agents](#for-agents) · [Contributing](#contributing)
+`本地优先` `阅读卡` `证据可追溯` `人机共用` `Obsidian` `Agent Skill`
 
 </div>
 
-## Why llm-wiki
+> [!TIP]
+> **这不是给 RAG 换一层 Markdown 皮肤。** `llm-wiki skill Human First` 的目标是让知识仍然适合人类阅读、批注、反驳和复查，同时让 Agent 能稳定地继续维护它。
 
-Most knowledge workflows optimize for retrieval. **llm-wiki optimizes for understanding.** It keeps the trail from a source to a reading card, then to durable concepts and topics that a person can browse, question, and revise in Obsidian.
+## 为什么是 Human First
 
-| Designed for llm-wiki | Common failure mode it avoids |
+大多数知识工作流优先优化“检索到答案”。这里优先优化“我为什么相信它、我哪里不同意、下一步如何验证”。
+
+| 你得到的 | 它避免的常见问题 |
 |---|---|
-| **A shared human-agent contract** | The agent writes notes that only the agent can interpret later |
-| **Reading cards before evergreen pages** | Raw text is dumped into a vault without an entry point for learning |
-| **Conversation-driven learning feedback** | Personal understanding and objections disappear into chat history |
-| **Traceable source metadata** | A claim survives but its source, page, slide, or worksheet is lost |
-| **External originals stay external** | Large or sensitive PDFs, Office files, and recordings get copied into Git or the vault |
-| **Plain Markdown and Obsidian links** | Knowledge is trapped in a proprietary retrieval system |
+| **阅读卡先于永久笔记** | 原文被丢进 vault，之后再也没人真正读它 |
+| **我的理解、反驳和实践问题可对话写入** | 关键学习过程散落在聊天记录里 |
+| **完整派生文本与定位信息** | 结论留下了，但找不回页码、幻灯片或工作表 |
+| **原始二进制文件留在 vault 外** | PDF、Office 文件、录音和隐私材料被复制进 Git |
+| **Obsidian wikilink 和纯 Markdown** | 知识被锁进某个模型或检索系统 |
+| **同一份人机契约** | 人看得懂的笔记与 Agent 能继续维护的结构脱节 |
 
-This is not a RAG corpus with a Markdown skin. It is a navigable, inspectable learning system where people remain able to read the source trail and decide what they believe.
-
-## How It Works
+## 从资料到理解
 
 ```mermaid
 flowchart LR
-  A[External original\nPDF, DOCX, PPTX, XLSX, image] -->|keep outside the vault| B[raw/\ncomplete input text]
-  B --> C[wiki/sources/\nreading card]
-  C --> D[My understanding\nobjections\npractice questions]
-  C --> E[wiki/entities/\nwiki/topics/\nwiki/synthesis/]
-  E --> F[index.md\nhuman navigation]
+  A["外部原件\nPDF / DOCX / PPTX / XLSX / 图片"] -->|"保留在 vault 外"| B["raw/\n完整派生 Markdown"]
+  B --> C["wiki/sources/\n阅读卡"]
+  C --> D["我的理解\n反驳与保留\n实践与问题"]
+  C --> E["entities / topics / synthesis\n可持续知识"]
+  E --> F["index.md\n供人浏览的入口"]
   D --> C
 ```
 
-### The four layers
+### 四层结构
 
-1. **External originals** stay outside the vault. A reading card records a stable path or URL in `original_ref`.
-2. **`raw/`** stores complete Markdown input text. It is the evidence layer and becomes read-only after ingest.
-3. **`wiki/sources/`** stores reading cards. This is where the person and agent build understanding together.
-4. **Entities, topics, and synthesis pages** hold cross-source knowledge worth preserving after the source has been read and linked.
+1. **外部原件**：PDF、Office、图片等保留在 vault 外，通过 `original_ref` 回溯。
+2. **`raw/`**：保存完整输入或派生 Markdown，是证据层；完成导入后不用于记录个人反馈。
+3. **`wiki/sources/`**：阅读卡。人和 Agent 在这里共同形成理解。
+4. **实体、主题、综合页**：仅沉淀跨来源仍值得保留的知识。
 
-## A Reading Card Is a Learning Surface
+## 60 秒开始
 
-Every new reading card records source type, original reference, text path, format, extraction method, locator scheme, and content hash. It also contains four durable feedback sections:
+1. 将此目录安装为兼容 Agent 的 Skill。
+2. 对 Agent 说：`帮我初始化一个知识库`。
+3. 提供一个链接、文件路径或文本，并说：`帮我消化这份资料`。
+4. 用 Obsidian 打开 vault，在 `wiki/sources/` 阅读生成的阅读卡。
+
+随后不必手改 Markdown。直接说：
+
+> 在“公司法评注学习指南”里补充：我认为章程自治不能突破强制性规范，后续想找一个股权转让条款案例验证。
+
+Agent 应将这段话写入对应阅读卡的反馈区，而不是改写 `raw/` 原文。
+
+## 一张阅读卡，保留一次学习
+
+每张阅读卡记录原件引用、文本路径、格式、提取方法、定位方案和内容哈希，并保留下面四个长期存在的区域：
 
 ```markdown
 ## 我的批注与学习反馈
@@ -62,45 +76,52 @@ Every new reading card records source type, original reference, text path, forma
 ### 反馈记录
 ```
 
-You do not need to edit Markdown manually. Say something like:
+这使“我学到了什么”“我暂时不同意什么”“我准备怎么验证”成为知识库的一部分，而不是一次性的聊天残留。
 
-> 在“公司法评注学习指南”里补充：我认为章程自治不能突破强制性规范，后续想找一个股权转让条款案例验证。
+## 给 Agent 的约束
 
-The agent writes that into the appropriate reading-card sections, preserves the original input text, and only updates topic or concept pages when you explicitly request it.
+完整规则见 [AGENTS.md](AGENTS.md)。以下规则不可省略：
 
-## Quick Start
+- 写入前先读 vault 根目录的 `.wiki-rules.md`。
+- 不得把用户的新观点写回完整输入文本 `raw/`。
+- 外部二进制原件留在 vault 外，并保留 `original_ref`、`source_hash`、`extraction_method` 和 locator 元数据。
+- 严格区分“来源中的事实”“用户的理解”和“Agent 的推断”。
+- 只有用户明确要求，才把阅读反馈传播到实体、主题或综合页。
 
-1. Install this directory as a compatible agent Skill.
-2. Ask the agent to initialize an Obsidian knowledge base.
-3. Provide a URL, local text file, pasted text, or a supported external adapter.
-4. Read the generated card in `wiki/sources/`, then use conversation to add your understanding and objections.
+## 能力边界与可选适配器
 
-The Skill entrypoint is [SKILL.md](SKILL.md). Its page-format contract is generated into each vault as `.wiki-rules.md`.
+核心流程支持本地 Markdown、TXT、HTML、PDF 和粘贴文本。网页、公众号、YouTube 等能力是可选适配器；缺少模块时，Agent 必须先运行状态检查，再按安装说明补齐或使用人工回退。
 
-## For Agents
+```bash
+bash scripts/adapter-state.sh check <source_id>
+```
 
-Read [AGENTS.md](AGENTS.md) first. The non-negotiable rules are:
+详见 [可选适配器指南](docs/OPTIONAL_ADAPTERS.md)。指南包含上游来源、安装前提、PATH 验证、许可证检查和失败回退，不会把浏览器 Cookie、配置或个人资料带进仓库。
 
-- Read the vault's root `.wiki-rules.md` before writing pages.
-- Never overwrite complete `raw/` input text when recording feedback.
-- Keep external binary originals outside the vault and preserve `original_ref`.
-- Distinguish a source claim from the user's interpretation or objection.
-- Maintain Obsidian wikilinks and source traceability.
+### MarkItDown 计划
 
-## Optional Adapters
+MarkItDown 尚未接入本版本。后续接入将使用隔离 Python 环境：原始二进制仍保留在 vault 外，只把派生 Markdown 写入 `raw/`，并记录转换器版本、哈希、提取方法及页码、幻灯片或工作表定位信息。
 
-The public core intentionally does not bundle web or YouTube extractor implementations. Install adapters separately so their licenses, browser credentials, and runtime dependencies stay explicit. The adapter guide gives both people and agents an installation-and-verification protocol, including manual fallbacks for unavailable capabilities. See [docs/OPTIONAL_ADAPTERS.md](docs/OPTIONAL_ADAPTERS.md).
+## 项目定位
 
-MarkItDown is planned as an optional local-file conversion adapter. It will preserve binary originals outside the vault and write only derived Markdown to `raw/` with converter metadata and page/slide/sheet locators.
+| 需求 | llm-wiki skill Human First 的选择 |
+|---|---|
+| 快速问答 | 可以查询，但不把问答当作知识库本身 |
+| RAG / 向量检索 | 不依赖它作为核心体验 |
+| 人类阅读 | 把阅读卡、来源链路和索引放在中心 |
+| Agent 自动化 | 受明确文件边界和格式契约约束 |
+| 原件管理 | 原件外置，vault 保留派生文本和可追溯引用 |
 
-## Project Status
+## 贡献
 
-The current public core reflects the customized `llm-wiki` **3.6.2** workflow. It is usable for local Markdown-based knowledge work and is evolving toward a traceable MarkItDown ingestion adapter.
+欢迎改进证据定位、导入回退、Obsidian 导航和阅读卡体验。提交前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [发布检查清单](docs/PUBLISHING_CHECKLIST.md)。不要提交个人 vault、原始资料、浏览器配置、Cookie、密钥或私有 URL。
 
-## Contributing
+## 许可证与致谢
 
-Contributions are welcome when they preserve the human-readable knowledge model. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [publishing checklist](docs/PUBLISHING_CHECKLIST.md) before submitting changes.
+本项目是对 [sdyckjq-lab/llm-wiki-skill](https://github.com/sdyckjq-lab/llm-wiki-skill) 的定制化衍生版本。原项目在 README 与 `package.json` 中声明 MIT；本项目保留 MIT 许可、上游归属和第三方许可证通知。详细证据见 [NOTICE](NOTICE)、[PROVENANCE.md](PROVENANCE.md) 和 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-## Citation and License
+- 上游 Skill 作者：[sdyckjq-lab](https://github.com/sdyckjq-lab)
+- 方法论来源：[Andrej Karpathy 的 llm-wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+- 本定制发行版维护者：[bangchuiLee](https://github.com/bangchuiLee)
 
-Use [CITATION.cff](CITATION.cff) when citing this project. Original llm-wiki code and documentation are MIT licensed; third-party graph assets retain their own licenses and notices in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+在研究、文档或公开工作流中使用本项目时，请参考 [CITATION.cff](CITATION.cff)。

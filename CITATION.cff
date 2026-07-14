@@ -1,12 +1,13 @@
 cff-version: 1.2.0
-message: "If you use llm-wiki in research, documentation, or a public workflow, please cite it."
+message: "If you use llm-wiki skill Human First in research, documentation, or a public workflow, please cite it."
 type: software
-title: "llm-wiki"
+title: "llm-wiki skill Human First"
 version: "3.6.2"
 date-released: "2026-07-15"
 license: "MIT"
 authors:
   - name: "sdyckjq-lab"
+  - name: "bangchuiLee"
 keywords:
   - "Obsidian"
   - "personal knowledge management"
@@ -14,4 +15,11 @@ keywords:
   - "Markdown"
   - "reading notes"
   - "knowledge graph"
-abstract: "A human-readable Obsidian knowledge-base Skill for shared maintenance by people and AI agents."
+abstract: "A human-first, traceable Obsidian knowledge-base Skill for shared maintenance by people and AI agents."
+repository-code: "https://github.com/bangchuiLee/llm-wiki-skill-human-first"
+references:
+  - type: software
+    title: "llm-wiki-skill"
+    authors:
+      - name: "sdyckjq-lab"
+    url: "https://github.com/sdyckjq-lab/llm-wiki-skill"

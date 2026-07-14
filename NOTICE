@@ -1,0 +1,23 @@
+llm-wiki skill Human First
+
+This repository is a customized derivative of:
+https://github.com/sdyckjq-lab/llm-wiki-skill
+
+Upstream attribution
+--------------------
+Upstream Skill author: sdyckjq-lab
+Upstream repository: https://github.com/sdyckjq-lab/llm-wiki-skill
+
+At the upstream main revision 37aba6cbb07e058313f410cbedb23a13d661028b
+(reviewed 2026-07-15), the upstream README and package.json declare MIT.
+This derivative retains that attribution and its MIT license notice.
+
+Methodology attribution
+-----------------------
+The project builds on Andrej Karpathy's llm-wiki methodology:
+https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+
+Third-party notices
+-------------------
+Redistributed graph assets retain their own licenses. See
+THIRD_PARTY_NOTICES.md and third_party/licenses/.
